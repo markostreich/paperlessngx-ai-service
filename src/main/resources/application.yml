@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: gpt-chat
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-5
+          temperature: 1
+
+paperless:
+  url: ${PAPERLESS_URL}
+  token: ${PAPERLESS_TOKEN}
+
+feign:
+  client:
+    config:
+      default:
+        url: ${paperless.url}
+        connectTimeout: 3000
+        readTimeout: 5000
+        loggerLevel: full
